@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tebak Password! 🔐</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container fade-in">
+        <h2 style="color: #d23369;">🔍 Tebak Passwordnya Sayang!</h2>
+        <p>eitss.. adaa passwordnyaa cicicici</p>
+        <p>(tgl, bln, thn)</p>
+        <input type="text" id="passwordInput" placeholder="Masukkan tanggal jadian kita" maxlength="8">
+        <button onclick="checkPassword()" class="heart-beat">Submit</button>
+        <p style="font-size: 0.9em; margin-top: 10px; color: #888;">kapannn hayoooooo</p>
+    </div>
+    
+    
+    <script>
+        function checkPassword() {
+            const correctPassword = "28022023";
+            const input = document.getElementById("passwordInput");
+            const button = document.querySelector("button");
+            
+            if (input.value === correctPassword) {
+                // Success animation
+                button.innerHTML = "✅ Yeayyy Benerrr";
+                button.style.background = "#4CAF50";
+                document.querySelector(".game-container").classList.add("heart-beat");
+                
+                setTimeout(() => {
+                    window.location.href = "message.html";
+                }, 1000);
+            } else {
+                // Error animation
+                button.innerHTML = "❌ Kok Lupaaa:(";
+                button.style.background = "#f44336";
+                input.style.borderColor = "#f44336";
+                
+                setTimeout(() => {
+                    button.innerHTML = "Submit";
+                    button.style.background = "#d23369";
+                    input.style.borderColor = "#fad0c4";
+                }, 1000);
+            }
+        }
+        
+        // Add enter key functionality
+        document.getElementById("passwordInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

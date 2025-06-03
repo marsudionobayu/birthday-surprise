@@ -1,0 +1,160 @@
+/* Gaya Dasar */
+body {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%);
+    color: #d23369;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background 1s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Animasi */
+.fade-in {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heart-beat {
+    animation: heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Tombol */
+button, .nav-btn {
+    background: #d23369;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(210, 51, 105, 0.3);
+}
+
+button:hover, .nav-btn:hover {
+    background: #b52a5a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(210, 51, 105, 0.4);
+}
+
+/* Game Container */
+.game-container, .message-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.game-container:hover, .message-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Input */
+input[type="text"] {
+    padding: 12px 20px;
+    margin: 15px 0;
+    width: 80%;
+    border: 2px solid #fad0c4;
+    border-radius: 50px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #d23369;
+}
+
+/* Pesan Tersembunyi */
+#hiddenMessage {
+    display: none;
+    margin-top: 30px;
+    animation: fadeIn 1s;
+}
+
+#hiddenMessage p {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+#hiddenMessage a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+#hiddenMessage a:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+}
+
+/* Gallery */
+.splide {
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.splide__slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .game-container, .message-container {
+        padding: 20px;
+        width: 90%;
+    }
+}

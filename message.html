@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pesan Rahasia 💝</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="message-container fade-in">
+        <h2 style="color: #d23369;">🎁 yeay! Sayang Berhasil Membuka Hadiah!</h2>
+        <button id="showMessageBtn" class="heart-beat">Klik untuk Buka Pesan Spesial ❤️</button>
+        <div id="hiddenMessage">
+            <p>Selamat ulang tahun, sayangku! 💖</p>
+            <p>Semoga hari ini dan semua hari-hari sayang dipenuhi dengan kebahagiaan, cinta, dan kesuksesan.</p>
+            <p>Semoga sayang selalu sehat, bahagia, dan sukses.❤</p>
+            <p>Semoga semua impian sayang bisa terwujud.</p>
+            <p>Maacii bangett sayang, sayang udahh mauu sama akuu teruss</p>
+            <p>Maap sayang aku cuman bisa ngasih ini, tapi ini dibuat dengan penuh cinta kokk ❤️</p>
+            <p>ini rahasiane yang tak bikin waktu tanggal 2 juni cicici</p>
+            <p>You're the most beautiful girl in the world! 👑</p>
+            <p>akuu senengg poll punyaa sayangg, gada yang bisa gantiin sayang</p>
+            <p>sayang the best pokokk buat akuu</p>
+            <p>Aku sayang kamu puoolllll 💕</p>
+            <a href="https://wa.me/6289691848700" target="_blank">💬 Chat Aku Sekarang!</a>
+        </div>
+    </div>
+    <audio id="bgMusic" loop src="assets/music/lagu.mp3"></audio>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const music = document.getElementById("bgMusic");
+        
+        // Lanjutkan musik jika status "playing" tersimpan
+        if (localStorage.getItem("musicPlaying") === "true") {
+            music.volume = 0.5;
+            music.play().catch(e => console.log("Autoplay diblokir:", e));
+        }
+
+        // Trigger play saat ada interaksi pengguna (untuk mengatasi blokir browser)
+        document.body.addEventListener('click', () => {
+            music.play().catch(e => console.log("Play manual gagal:", e));
+        }, { once: true });
+        
+    });
+</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        document.getElementById("showMessageBtn").addEventListener("click", function() {
+            const btn = this;
+            const message = document.getElementById("hiddenMessage");
+            
+            // Button animation
+            btn.innerHTML = "🎉 Buka Lagi!";
+            btn.classList.add("heart-beat");
+            
+            // Show message
+            message.style.display = "block";
+            
+            // Confetti effect
+            confetti({
+                particleCount: 200,
+                spread: 90,
+                origin: { y: 0.6 },
+                colors: ['#ff0000', '#ff0099', '#d23369', '#ff9a9e']
+            });
+            
+            // Additional floating hearts
+            const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement("div");
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.position = "fixed";
+                    heart.style.left = Math.random() * 100 + "vw";
+                    heart.style.bottom = "-20px";
+                    heart.style.fontSize = (Math.random() * 30 + 20) + "px";
+                    heart.style.animation = `float ${Math.random() * 3 + 3}s linear forwards`;
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 200);
+            }
+        });
+    </script>
+</body>
+</html>

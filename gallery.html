@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Memories 💌</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="fade-in">
+        <h1 style="color: #d23369; margin-bottom: 30px;">selamat umur 20 sayangg ❤️</h1>
+        <div class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img src="assets/images/foto1.jpg" alt="Memory 1"></li>
+                    <li class="splide__slide"><img src="assets/images/foto2.jpg" alt="Memory 2"></li>
+                    <li class="splide__slide"><img src="assets/images/foto3.jpg" alt="Memory 3"></li>
+                    <li class="splide__slide"><img src="assets/images/foto4.jpg" alt="Memory 4"></li>
+                    <li class="splide__slide"><img src="assets/images/foto5.jpg" alt="Memory 5"></li>
+                    <li class="splide__slide"><img src="assets/images/foto6.jpg" alt="Memory 6"></li>
+                    <li class="splide__slide"><img src="assets/images/foto7.jpg" alt="Memory 7"></li>
+                    <li class="splide__slide"><img src="assets/images/foto8.jpg" alt="Memory 8"></li>
+                    <li class="splide__slide"><img src="assets/images/foto9.jpg" alt="Memory 9"></li>
+                    <li class="splide__slide"><img src="assets/images/foto10.jpg" alt="Memory 10"></li>
+                    <li class="splide__slide"><img src="assets/images/foto11.jpg" alt="Memory 11"></li>
+                    <li class="splide__slide"><img src="assets/images/foto12.jpg" alt="Memory 12"></li>
+                    <li class="splide__slide"><img src="assets/images/foto13.jpg" alt="Memory 13"></li>
+                    <!-- Add more slides as needed -->
+                </ul>
+            </div>
+        </div>
+        <div class="splide__progress">
+            <div class="splide__progress__bar"></div>
+        </div>
+        <button class="nav-btn heart-beat" onclick="location.href='game.html'">ada hadiah buat sayang</button>
+    </div>
+    <audio id="bgMusic" loop src="assets/music/lagu2.mp3"></audio>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const music = document.getElementById("bgMusic");
+        
+        // Lanjutkan musik jika status "playing" tersimpan
+        if (localStorage.getItem("musicPlaying") === "true") {
+            music.volume = 0.5;
+            music.play().catch(e => console.log("Autoplay diblokir:", e));
+        }
+
+        // Trigger play saat ada interaksi pengguna (untuk mengatasi blokir browser)
+        document.body.addEventListener('click', () => {
+            music.play().catch(e => console.log("Play manual gagal:", e));
+        }, { once: true });
+    });
+</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Splide('.splide', {
+                type: 'loop',
+                autoplay: true,
+                interval: 3000,
+                pauseOnHover: true,
+                pauseOnFocus: true,
+                arrows: true,
+                pagination: true,
+                cover: true,
+                height: '400px'
+            }).mount();
+        });
+    </script>
+</body>
+</html>
